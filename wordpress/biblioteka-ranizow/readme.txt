@@ -1,4 +1,4 @@
-Biblioteka Raniżów — motyw WordPressa 1.0.0
+Biblioteka Raniżów — motyw WordPressa 1.0.1
 =======================================
 
 Instalacja:
@@ -27,6 +27,16 @@ metadane oraz zapisane dane biblioteki pozostają w bazie po zmianie motywu.
 Nie pobiera sam książek z zewnętrznego katalogu. Nie zawiera formularza kontaktowego,
 analityki, zewnętrznych fontów, page-buildera ani wymaganych płatnych wtyczek.
 Planowanie publikacji zależy od poprawnego działania harmonogramu WordPressa na hostingu.
+
+Aktualizacja z 1.0.0:
+Wgraj nowy ZIP w Wygląd → Motywy → Dodaj nowy → Wyślij motyw na serwer.
+Wybierz „Zastąp obecny motyw przesłanym”. Nie usuwaj wpisów ani WordPressa.
+Nie trzeba ponownie uruchamiać przygotowania stron.
+Wydarzenie bez zapisanego końca jest widoczne do końca dnia rozpoczęcia.
+Po zapisaniu opublikowanego wpisu motyw odświeża cache strony głównej przez API
+WordPressa. Dodatkowy cache hostingu lub wtyczki może wymagać własnego czyszczenia.
+Wygląd → Sprawdź wpisy pokazuje raport pobieranych wpisów i zapisanych terminów.
+Raport i świeży podgląd są dostępne wyłącznie dla administratora.
 
 Przed publicznym uruchomieniem biblioteka musi sprawdzić dane, dostępność, prawa
 do materiałów i zatwierdzić dokumenty. Motyw nie stanowi certyfikatu WCAG.

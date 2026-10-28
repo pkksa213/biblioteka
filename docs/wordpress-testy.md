@@ -16,7 +16,15 @@ Motyw sprawdzono na lokalnej instalacji **WordPress 7.1.3, PHP 8.3.36 i MariaDB 
 - Sprawdzono dziewięć typów stron, szerokości 320, 375, 768, 1024 i 1440 px oraz tekst 100% i 200%, link do treści, klawiaturę, Escape, menu mobilne, wyszukiwanie i przełączniki czytelności.
 - Podczas sprawdzonego przeglądania niezalogowanej strony motyw nie wykonywał zewnętrznych żądań. Nie dodaje analityki, cookies ani zewnętrznych fontów.
 
-Końcowe uruchomienie zakończyło **47 sprawdzeń integracyjnych i 139 przeglądarkowych**. WordPress poprawnie rozpakował paczkę i rozpoznał instalacyjny motyw Biblioteka Raniżów 1.0.0. Test przeglądarkowy weryfikuje układ i rzeczywiste operacje przez panel. Aktualne wyniki są wypisywane przez polecenia poniżej. Nie są to certyfikat dostępności, audyt całej przyszłej treści ani gwarancja zgodności z każdym hostingiem i zestawem wtyczek.
+Aktualne uruchomienie zakończyło **58 sprawdzeń integracyjnych, 145 przeglądarkowych i 15 sprawdzeń rzeczywistej publikacji**. Osobny test `homepage.mjs` publikuje artykuł, wydarzenie i książkę prawdziwymi przyciskami edytora po wcześniejszym odwiedzeniu strony głównej; sprawdza status, metadane, podstronę, archiwum i sekcję na stronie głównej. Test przeglądarkowy weryfikuje także dostępność raportu tylko dla administratora oraz nagłówki bez cache i indeksowania w podglądzie. WordPress rozpakował ZIP i rozpoznał poprawny motyw Biblioteka Raniżów **1.0.1**. Nie są to certyfikat dostępności, audyt całej przyszłej treści ani gwarancja zgodności z każdym hostingiem i zestawem wtyczek.
+
+### Regresja kalendarza i ograniczenia diagnozy
+
+Przed poprawką 1.0.1 test opublikowanego wydarzenia z przyszłym początkiem i końcem `0` kończył się błędem: **„Wydarzenie bez opcjonalnego zakończenia znika z kalendarza”**. To samo dotyczyło brakujących lub pustych metadanych zakończenia. Po poprawce zapytanie wyświetla je do końca dnia rozpoczęcia w strefie WordPressa. Test obejmuje też bieżący dzień, wydarzenie minione i brak początku.
+
+Sprawdzono sygnał odświeżenia strony głównej po publikacji, wycofaniu i trwałym usunięciu wpisu. Zmiana niepublicznego szkicu go nie wywołuje. To integracja ze standardowym `clean_post_cache`, nie obietnica czyszczenia dowolnego cache poza WordPressem.
+
+Nie odtworzono braku zwykłego artykułu: w lokalnym środowisku prawdziwa publikacja powoduje wyświetlenie na stronie głównej. Bezpośredni odczyt domeny użytkownika pozostaje zablokowany przez politykę sieci. Nie można przypisać konkretnej przyczyny jego hostingowi bez raportu z **Wygląd → Sprawdź wpisy** lub danych instalacji.
 
 ## Powtórzenie w środowisku projektu
 
@@ -26,6 +34,7 @@ python3 dev/wordpress.py start
 python3 dev/wordpress.py lint
 python3 dev/wordpress.py test
 node tests/wordpress/browser.mjs
+node tests/wordpress/homepage.mjs
 python3 tools/package_wordpress.py
 ```
 

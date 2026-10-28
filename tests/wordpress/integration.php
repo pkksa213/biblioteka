@@ -98,6 +98,23 @@ $start = wp_date('Y-m-d\TH:i',time()+3*DAY_IN_SECONDS);
 save_kind($event,'event',array('br_event_start'=>$start,'br_event_place'=>'Biblioteka — miejsce testowe'));
 verify((int)get_post_meta($event,'_br_event_start',true)===br_parse_datetime($start),'Błędna strefa czasowa wydarzenia.');
 verify(strpos(render_part('events'),'Testowe spotkanie')!==false,'Nadchodzące wydarzenie niewidoczne.');
+$event_without_end = fixture(array('post_title'=>'WYDARZENIE_BEZ_KONCA_TEST'));
+update_post_meta($event_without_end, '_br_kind', 'event');
+update_post_meta($event_without_end, '_br_event_start', br_parse_datetime($start));
+update_post_meta($event_without_end, '_br_event_until', 0);
+verify(strpos(render_part('events'),'WYDARZENIE_BEZ_KONCA_TEST')!==false,'Wydarzenie bez opcjonalnego zakończenia znika z kalendarza.');
+delete_post_meta($event_without_end, '_br_event_until');
+verify(strpos(render_part('events'),'WYDARZENIE_BEZ_KONCA_TEST')!==false,'Wydarzenie bez metadanych końca znika z kalendarza.');
+update_post_meta($event_without_end, '_br_event_until', '');
+verify(strpos(render_part('events'),'WYDARZENIE_BEZ_KONCA_TEST')!==false,'Wydarzenie z pustym zakończeniem znika z kalendarza.');
+update_post_meta($event_without_end, '_br_event_start', (new DateTimeImmutable('today', wp_timezone()))->getTimestamp());
+verify(strpos(render_part('events'),'WYDARZENIE_BEZ_KONCA_TEST')!==false,'Wydarzenie bez końca powinno być widoczne do końca dnia.');
+update_post_meta($event_without_end, '_br_event_start', br_parse_datetime(wp_date('Y-m-d\TH:i',time()-4*DAY_IN_SECONDS)));
+verify(strpos(render_part('events'),'WYDARZENIE_BEZ_KONCA_TEST')===false,'Minione wydarzenie bez końca jest nadal nadchodzące.');
+update_post_meta($event_without_end, '_br_event_start', 0);
+update_post_meta($event_without_end, '_br_event_until', time()+DAY_IN_SECONDS);
+verify(strpos(render_part('events'),'WYDARZENIE_BEZ_KONCA_TEST')===false,'Kalendarz pokazuje wydarzenie bez początku.');
+wp_delete_post($event_without_end,true);
 $past = fixture(array('post_title'=>'MINIONE_WYDARZENIE_TEST'));
 save_kind($past,'event',array('br_event_start'=>wp_date('Y-m-d\TH:i',time()-4*DAY_IN_SECONDS)));
 verify(strpos(render_part('events'),'MINIONE_WYDARZENIE_TEST')===false,'Minione wydarzenie widoczne jako nadchodzące.');
@@ -118,6 +135,25 @@ save_kind($notice,'notice'); verify(strpos(render_part('notices'),'Testowe ważn
 $expired = fixture(array('post_title'=>'WYGASLE_OGLOSZENIE_TEST'));
 save_kind($expired,'notice',array('br_notice_until'=>wp_date('Y-m-d\TH:i',time()-DAY_IN_SECONDS)));
 verify(strpos(render_part('notices'),'WYGASLE_OGLOSZENIE_TEST')===false,'Wygasłe ogłoszenie widoczne w ważnych.');
+
+// Strona zbierająca wpisy otrzymuje sygnał odświeżenia dopiero po całym zapisie.
+$refreshed = array();
+$track_refresh = function ($id) use (&$refreshed) { $refreshed[] = $id; };
+add_action('clean_post_cache', $track_refresh);
+$cache_test = fixture(array('post_title'=>'ODSWIEZENIE_STRONY_TEST'));
+verify(in_array($front,$refreshed,true),'Publikacja wpisu nie odświeża strony głównej.');
+$refreshed=array();
+wp_update_post(array('ID'=>$cache_test,'post_status'=>'draft'));
+verify(in_array($front,$refreshed,true),'Wycofanie wpisu nie odświeża strony głównej.');
+$refreshed=array();
+wp_update_post(array('ID'=>$cache_test,'post_title'=>'ZMIANA_SZKICU_TEST'));
+verify(!in_array($front,$refreshed,true),'Zmiana niepublicznego szkicu odświeża stronę główną.');
+wp_update_post(array('ID'=>$cache_test,'post_status'=>'publish'));
+$refreshed=array();
+wp_delete_post($cache_test,true);
+verify(in_array($front,$refreshed,true),'Usunięcie opublikowanego wpisu nie odświeża strony głównej.');
+remove_action('clean_post_cache',$track_refresh);
+verify(strpos(br_home_diagnostic_report(),'Testowe spotkanie')!==false && strpos(br_home_diagnostic_report(),'Kalendarz — aktualnie pobierane ID: '.$event)!==false,'Raport nie pokazuje danych rzeczywistego zapytania kalendarza.');
 
 // Zmiana danych trafia jednocześnie do strony głównej i stopki.
 $data=br_data();$data['phone']='17 11 22 333';$data['street']='Adres testowy 12';update_option('br_library_data',$data);

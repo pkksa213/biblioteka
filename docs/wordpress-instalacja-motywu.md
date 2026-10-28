@@ -2,6 +2,21 @@
 
 Gotowy motyw to **`biblioteka-ranizow-wordpress.zip`** w folderze `do-pobrania` repozytorium. Paczka HTML `biblioteka-na-hosting.zip` pozostaje dawną makietą i nie służy do instalacji motywu.
 
+## Aktualizacja już zainstalowanego motywu do 1.0.1
+
+1. Pobierz ponownie [ZIP motywu](https://github.com/pkksa213/biblioteka/raw/refs/heads/main/do-pobrania/biblioteka-ranizow-wordpress.zip). Zachowaj plik ZIP bez rozpakowywania.
+2. Zaloguj się jako administrator i otwórz [wysyłanie motywu](https://bibliotekaranizow.ct.ws/wp-admin/theme-install.php?upload).
+3. Kliknij **Wybierz plik**, wskaż nowy ZIP i kliknij **Zainstaluj**.
+4. Gdy WordPress wykryje istniejący motyw, kliknij **Zastąp obecny motyw przesłanym**. Nowa wersja to **1.0.1**.
+5. Nie trzeba ponownie przygotowywać stron ani dodawać wpisów. Aktualizacja podmienia pliki motywu; treści pozostają w bazie.
+6. Otwórz [Wygląd → Sprawdź wpisy](https://bibliotekaranizow.ct.ws/wp-admin/themes.php?page=br-posts).
+7. Kliknij **Otwórz świeży podgląd strony głównej**. Na górze zobaczysz wersję motywu i godzinę wygenerowania podglądu.
+8. Jeśli nadal brakuje wpisu, skopiuj raport z tego ekranu do rozmowy. Raport pokazuje aktualne ID wpisów pobieranych do sekcji, zapisany rodzaj, status, terminy wydarzeń, przypisanie stron i aktywne wtyczki. Nie zawiera haseł ani danych logowania.
+
+Poprawka kalendarza obejmuje wydarzenia, których termin rozpoczęcia jest zapisany, lecz opcjonalne zakończenie w bazie nie istnieje, jest puste lub ma wartość zero. Takie wydarzenie pozostaje widoczne do końca dnia rozpoczęcia. Minione wydarzenia i wpisy bez początku pozostają poza kalendarzem. Po zapisaniu publicznego wpisu motyw zgłasza odświeżenie strony głównej przez API WordPressa, także po zapisaniu pól przez REST. Nie gwarantuje to wyczyszczenia każdego zewnętrznego cache hostingu lub wtyczki.
+
+Nie potwierdzono jeszcze przyczyny braku zwykłych artykułów na hostingu użytkownika: bezpośredni odczyt domeny jest blokowany przez sieć środowiska. W izolowanym WordPressie publikacja artykułu, wydarzenia i książki prawdziwymi przyciskami edytora powoduje ich pojawienie się w odpowiednich sekcjach. Raport służy ustaleniu różnicy bez zgadywania ustawień hostingu.
+
 ## 1. Pobierz właściwy plik
 
 Otwórz [ZIP motywu na GitHubie](https://github.com/pkksa213/biblioteka/blob/main/do-pobrania/biblioteka-ranizow-wordpress.zip) i kliknij strzałkę **Download raw file**. Nie rozpakowuj pliku przed wysłaniem go do panelu WordPressa.

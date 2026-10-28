@@ -1,12 +1,13 @@
 <?php
 /** Funkcje motywu; dane wpisów pozostają w standardowych tabelach WordPressa. */
 if (!defined('ABSPATH')) { exit; }
-define('BR_THEME_VERSION', '1.0.0');
+define('BR_THEME_VERSION', '1.0.1');
 
 require_once get_template_directory() . '/inc/data.php';
 require_once get_template_directory() . '/inc/setup.php';
 require_once get_template_directory() . '/inc/settings.php';
 require_once get_template_directory() . '/inc/editor.php';
+require_once get_template_directory() . '/inc/home.php';
 
 add_action('after_setup_theme', function () {
     load_theme_textdomain('biblioteka-ranizow', get_template_directory() . '/languages');

@@ -1,6 +1,6 @@
 <?php
 if (!defined('ABSPATH')) { exit; }
-$books = br_query(array('posts_per_page' => 4, 'meta_key' => '_br_kind', 'meta_value' => 'book'));
+$books = br_home_query('books');
 if (!$books->have_posts()) { return; }
 $data = br_data();
 ?>

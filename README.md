@@ -11,6 +11,8 @@
 
 [Dokładna instrukcja instalacji, krok po kroku](docs/wordpress-instalacja-motywu.md).
 
+**Aktualizacja 1.0.1:** wgraj nowy ZIP tą samą drogą i wybierz **Zastąp obecny motyw przesłanym**. Wpisy pozostają w bazie. Kalendarz obsługuje również zapisany początek wydarzenia bez metadanych opcjonalnego końca. Po pełnym zapisie publicznego wpisu motyw zgłasza odświeżenie strony głównej do mechanizmu cache WordPressa. W **Wygląd → Sprawdź wpisy** administrator może sprawdzić pobierane wpisy, terminy i świeży podgląd. Brak zwykłych artykułów na zewnętrznym hostingu nadal wymaga potwierdzenia raportem; nie ustalono, czy wynika z cache lub innej konfiguracji.
+
 ## Dodawanie treści
 
 W **Wpisy → Dodaj nowy**, w prawej zakładce **Wpis → Treść biblioteki**, wybierz **Artykuł, Nowa książka, Wydarzenie albo Ważne ogłoszenie**. Opublikowane treści pojawiają się w odpowiednich sekcjach. W klasycznym edytorze panel jest pod treścią. Katalog biblioteczny pozostaje zewnętrznym systemem; motyw nie importuje z niego automatycznie książek.
@@ -33,7 +35,7 @@ Galeria korzysta z natywnego bloku WordPressa. Nie ma zależności od page-build
 
 ## Weryfikacja
 
-Motyw uruchomiono na WordPressie 7.1.3 z PHP 8.3.36 i MariaDB 11.4. Sprawdzono konfigurację, zachowanie treści, uprawnienia, formularz danych, natywny edytor, publikowanie książki i wydarzenia, daty i wygasanie ogłoszeń, galerię oraz responsywność dziewięciu typów stron z tekstem 100% i 200%. Końcowe uruchomienie zakończyło 47 sprawdzeń integracyjnych i 139 przeglądarkowych. WordPress rozpakował ZIP i rozpoznał poprawny motyw. Dokumentacja zawiera odtwarzalne polecenia.
+Motyw uruchomiono na WordPressie 7.1.3 z PHP 8.3.36 i MariaDB 11.4. Sprawdzono konfigurację, zachowanie treści, uprawnienia, formularz danych, natywny edytor, publikowanie książki i wydarzenia, daty i wygasanie ogłoszeń, galerię oraz responsywność dziewięciu typów stron z tekstem 100% i 200%. Aktualne uruchomienie zakończyło 58 sprawdzeń integracyjnych, 145 przeglądarkowych i 15 sprawdzeń publikacji przyciskami edytora. WordPress rozpakował ZIP i rozpoznał poprawny motyw 1.0.1. Dokumentacja zawiera odtwarzalne polecenia.
 
 Paczka motywu jest przygotowana i sprawdzona lokalnie. Nie zainstalowano jej zdalnie na koncie hostingowym użytkownika. W WordPressie użytkownika potrzebne jest wgranie, aktywacja oraz uruchomienie konfiguracji.
 

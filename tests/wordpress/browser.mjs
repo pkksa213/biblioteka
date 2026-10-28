@@ -83,6 +83,16 @@ try {
   await admin.goto(base + '/wp-admin/themes.php?page=br-start');
   await Promise.all([admin.waitForURL(/prepared=1/), admin.getByRole('button', { name: 'Przygotuj stronę biblioteki', exact: true }).click()]);
   check(await admin.getByText('Strona przygotowana.', { exact: false }).count() > 0, 'Przycisk konfiguracji nie zadziałał.');
+  await admin.goto(base + '/wp-admin/themes.php?page=br-posts');
+  const diagnostic = await admin.locator('#br-home-report').inputValue();
+  check(diagnostic.includes('Kalendarz — aktualnie pobierane ID: ' + manifest.event), 'Raport nie używa faktycznego zapytania strony głównej.');
+  check(diagnostic.includes('Testowe spotkanie') && diagnostic.includes('Początek:'), 'Raport nie wyświetla zapisanych terminów.');
+  const previewLink = await admin.getByRole('link', { name: 'Otwórz świeży podgląd strony głównej', exact: true }).getAttribute('href');
+  const preview = await admin.goto(previewLink);
+  check(preview.status() === 200 && (await admin.locator('body').innerText()).includes('Podgląd administratora — motyw 1.0.1'), 'Podgląd nie uruchamia obecnej wersji motywu.');
+  check((await preview.headerValue('cache-control')).includes('no-cache') && (await preview.headerValue('x-robots-tag')).includes('noindex'), 'Podgląd diagnostyczny może być zapisany w cache lub indeksie.');
+  const guestPreview = await guest.request.get(previewLink);
+  check(guestPreview.status() === 403, 'Niezalogowany czytelnik ma dostęp do podglądu diagnostycznego.');
 
   const editorContext = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
   const editor = await editorContext.newPage();
@@ -101,6 +111,8 @@ try {
   await login(subscriber, 'biblioteka_test_subscriber');
   const forbiddenSettings = await subscriberContext.request.get(base + '/wp-admin/admin.php?page=br-library');
   check(forbiddenSettings.status() === 403, 'Czytelnik ma dostęp do danych biblioteki.');
+  const forbiddenReport = await subscriberContext.request.get(base + '/wp-admin/themes.php?page=br-posts');
+  check(forbiddenReport.status() === 403 && !(await forbiddenReport.text()).includes('Testowe spotkanie'), 'Czytelnik ma dostęp do raportu wpisów.');
 
   await editor.goto(base + '/wp-admin/post-new.php');
   await editor.waitForFunction(() => window.wp?.data?.select('core/editor'));
