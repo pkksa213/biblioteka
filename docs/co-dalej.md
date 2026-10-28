@@ -45,3 +45,7 @@ InfiniteFree służy tu do prób. Zanim publiczna instytucja użyje danego hosti
 W ustawieniach środowiska chmurowego znajdź ustawienia dostępu do internetu. Zapisano propozycję domen potrzebnych do sprawdzenia Dzikowca, BIP i oficjalnych źródeł prawnych. Przejrzyj i zapisz ustawienia. Jeżeli interfejs wymaga publikacji konfiguracji, opublikuj środowisko zgodnie z jego komunikatem. Sam zapis projektu konfiguracji przez agenta nie zastosował tych zmian do działającej sesji.
 
 Nie potrzebuję Twojego hasła do GitHuba ani tokenu w czacie. Dostęp do hostingu jest osobną sprawą i nie wynika z zezwolenia na przeglądanie internetu. Po zastosowaniu zmian agent powinien ponowić zwykły odczyt stron i potwierdzić faktyczny wynik, zamiast zakładać, że dostęp już działa.
+
+## Instalacja WordPressa i nowe książki
+
+Szczegółowa instrukcja dla początkującego: [WordPress — jak zacząć](wordpress-jak-zaczac.md). Samo zainstalowanie WordPressa nie przenosi makiety do motywu. Nowe książki, artykuły i ważne ogłoszenia będzie dodawać redakcja, a wdrożone szablony pokażą je na stronie. Zewnętrzny katalog nie jest automatycznie importowany.

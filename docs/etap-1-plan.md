@@ -41,18 +41,14 @@ Makieta ma rozwijane menu, skróty do sekcji i osobne strony HTML artykułów or
 ├── /dla-czytelnikow/
 │   ├── /dla-czytelnikow/godziny-otwarcia/
 │   ├── /dla-czytelnikow/jak-sie-zapisac/
-│   ├── /dla-czytelnikow/oferta-i-uslugi/
 │   ├── /dla-czytelnikow/regulamin/
-│   ├── /dla-czytelnikow/cennik/
 │   ├── /dla-czytelnikow/dzieci-i-mlodziez/       jeśli jest odrębna oferta
 │   └── /dla-czytelnikow/seniorzy/               jeśli jest odrębna oferta
 ├── /o-bibliotece/
-│   ├── /o-bibliotece/historia/
 │   ├── /o-bibliotece/struktura-i-pracownicy/
 │   ├── /o-bibliotece/statut/
 │   └── /o-bibliotece/projekty-i-dofinansowania/
 ├── /filie/                                    wszystkie filie jako bloki
-├── /regionalia/
 ├── /galeria/                                  albumy z podpisami
 │   └── /galeria/nazwa-albumu/
 ├── /kontakt/
@@ -69,37 +65,32 @@ Makieta ma rozwijane menu, skróty do sekcji i osobne strony HTML artykułów or
 
 Użytkownik wskazał [ten adres w domenie BIP Raniżowa](https://bip.ranizow.pl/6742,6744/6744/). Dodano go do makiety. Odczyt treści w środowisku roboczym został zablokowany odpowiedzią 403 przy zestawianiu połączenia przez proxy, więc nie potwierdzono zawartości ani tego, czy jest to docelowy dział biblioteki. Nie jest to stwierdzenie, że sama strona nie działa u użytkownika.
 
-**Stopka:** adres, telefon, e-mail i godziny jako tekst; skróty do filii; Katalog; BIP; Statut; Regulaminy; Ochrona dzieci; Deklaracja dostępności; Prywatność i cookies; Mapa strony. Pozycje niewypełnione pozostają w szkicu, a nie w publicznej nawigacji. Służbowe dane pracowników publikujemy w zatwierdzonym zakresie.
+**Stopka:** adres, telefon, e-mail i godziny jako tekst; skróty do filii; Katalog; BIP; Statut; Regulamin; Ochrona dzieci; Deklaracja dostępności; Prywatność i cookies; Mapa strony. Pozycje niewypełnione pozostają w szkicu, a nie w publicznej nawigacji. Służbowe dane pracowników publikujemy w zatwierdzonym zakresie.
 
-## 3. Układ strony głównej — poprawiony według uwag użytkownika
+## 3. Układ strony głównej — aktualna poprawka
 
 ```text
 [Przejdź do treści]
-[Nazwa, logo robocze, narzędzia czytelności]
-[Start | O bibliotece | Artykuły | Dla czytelników | Filie | Regionalia | Galeria | Kontakt]
+[Nazwa i znak roboczy | narzędzia czytelności]
+[Start | O bibliotece | Artykuły | Dla czytelników | Filie | Galeria | Kontakt | KATALOG KSIĄŻEK]
 
-GODZINY OTWARCIA     ADRES BIBLIOTEKI        TELEFON I E-MAIL
-[tabela dni]        [Wolska 35, kod]        [klikalne dane kontaktowe]
-
-[Katalog Raniżowa] [Katalog gminy] [BIP]
-
-ARTYKUŁY I AKTUALNOŚCI                      NA SKRÓTY
-[wyróżniony artykuł z odnośnikiem]          [godziny, kontakt, regulamin]
-[dwa kolejne artykuły]                     [ważne ogłoszenia]
-[Wszystkie artykuły → kategorie → pełny wpis]
-
+GODZINY OTWARCIA          ADRES                    TELEFON I E-MAIL
+WAŻNE OGŁOSZENIA — szeroki, wyróżniony blok
+KATALOG GMINY — główne wejście
+[Katalog Raniżowa] [Katalog Mazur] [Wola Raniżowska: katalog wspólny]
+ARTYKUŁY I AKTUALNOŚCI — bez bocznej sekcji Na skróty
 NOWOŚCI KSIĄŻKOWE
 WYDARZENIA I O BIBLIOTECE
-GALERIA I REGIONALIA
-FILIE: Wola Raniżowska i Mazury — osobne adresy i godziny
-STOPKA: kontakt, dokumenty, deklaracja, prywatność i BIP
+GALERIA
+FILIE — adresy i godziny
+STOPKA — kontakt i dokumenty
 ```
 
-Duża dekoracyjna sekcja powitalna została usunięta z początku strony, żeby pierwszeństwo miały informacje potrzebne przed wizytą. Na telefonie godziny są pierwsze, następnie adres i kontakt. Rozwijane menu działa po kliknięciu i z klawiatury; nie wymaga najechania myszą.
+Godziny, adres i kontakt pozostają na pierwszym planie. Ogłoszenia mają szeroki żółty blok bez fikcyjnego pilnego komunikatu. Katalog jest wyróżniony w menu oraz głównym panelem i kartami placówek. Wola Raniżowska prowadzi jawnie do katalogu gminnego. Nie potwierdzono działania zewnętrznych serwisów, ponieważ proxy odrzuciło odczyt.
 
-Makieta zawiera teraz osobną listę artykułów z filtrami oraz trzy pełne przykładowe wpisy. Dane biblioteki pochodzą z wiadomości użytkownika. Niewymienionych dni nie oznaczamy automatycznie jako zamknięte. Nie opisujemy fikcyjnych wydarzeń jako rzeczywistych.
+Usunięto sekcję Na skróty także ze stopki, historię i regionalia. Strefa czytelnika ma nowy nagłówek, karty pierwszej wizyty, regulaminu i wydarzeń, opis zapisów oraz panel dokumentów. Nie ma oferty usług ani cennika. Pozostały informacje o instytucji, pracownikach i projektach.
 
-Docelowo brak nowych książek lub zdjęć ukrywa odpowiednią sekcję. Brak wydarzeń daje komunikat i odnośnik do archiwum. Pilna zmiana godzin pojawia się jako widoczne ogłoszenie. Makieta pozostawia oznaczone próbki do oceny wyglądu.
+Regulamin, statut i standardy wymagają oficjalnych dokumentów biblioteki. W makiecie są wyraźne informacje o ich statusie oraz kontakt, a nie wymyślone zasady. Deklaracja i polityka pozostają oznaczonymi szkicami.
 
 ## 4. Układy podstron
 
@@ -119,15 +110,7 @@ Kolumna tekstu około 65–75 znaków. Hierarchia H2/H3. PDF-y z podanym formate
 
 `Okruszki → H1 → wprowadzenie → sekcje H2 → aktualizacja / osoba lub komórka do kontaktu → powiązane strony`.
 
-Godziny otwarcia: tabela z nagłówkami kolumn „Dzień” i „Godziny”, filie osobno, wyjątki pod tabelą. Regulamin i cennik: HTML jako podstawowy format, PDF dodatkowo. Oferta obejmuje tylko potwierdzone usługi; nie zakładamy dostępu do e-booków, ksero ani komputerów.
-
-### Historia biblioteki i regionalia
-
-`H1 → wstęp → oś czasu → źródła materiałów → galeria archiwalna → kontakt do przekazywania wspomnień`.
-
-Oś czasu jako uporządkowana lista: **[rok] — [wydarzenie] — [opis] — [własne/udostępnione zdjęcie i źródło]**. Na telefonie pionowo. Bez dat i nazwisk, zanim biblioteka ich nie potwierdzi. Gdy materiałów jest niewiele albo kierowniczka nie chce osi czasu: zwykły artykuł. Regionalia zawierają opis zbiorów i zatwierdzone materiały o gminie, bez kopiowania cudzych publikacji.
-
-Ponieważ materiałów historycznych jeszcze nie ma, stronę Historii zachowujemy w planie jako szkic, bez pustego odnośnika na publicznej stronie.
+Godziny otwarcia: tabela z nagłówkami kolumn „Dzień” i „Godziny”, filie osobno, wyjątki pod tabelą. Regulamin: zatwierdzony tekst HTML jako podstawowy format, dostępny PDF opcjonalnie. Z aktualnego zakresu usunięto ofertę usług i cennik.
 
 ### Wydarzenia
 
@@ -230,3 +213,7 @@ Odpowiedzi na pytania z początku rozmowy zastąpią placeholdery. Brak odpowied
 ## Uzupełnienie: analiza prawna i instrukcja
 
 Na wyraźną prośbę użytkownika przygotowano [wstępną analizę prawa i dostępności](prawo-i-dostepnosc.md), szkice podstron deklaracji i prywatności oraz [instrukcję dalszych działań](co-dalej.md). Odczyt Dzikowca i źródeł urzędowych nadal był blokowany przez proxy; nie oznacza to pełnego audytu ani ukończenia całego Etapu 5.
+
+## WordPress i treści
+
+Instrukcja instalacji i wyjaśnienie redakcji: [WordPress — jak zacząć](wordpress-jak-zaczac.md). Nowe książki i artykuły dodaje redakcja; WordPress po wdrożeniu szablonów wyświetla wpisy we właściwych sekcjach. Katalog zewnętrzny nie jest automatycznie synchronizowany. Aktualna paczka nadal jest makietą HTML.

@@ -4,7 +4,7 @@
 
 ## Zobacz projekt
 
-- **[Pobierz ZIP do wgrania na hosting](do-pobrania/biblioteka-na-hosting.zip)** — na stronie pliku kliknij „Download raw file”. Rozpakuj i wgraj zawartość do pustego katalogu `htdocs/makieta/` na hostingu testowym. Paczka zawiera wyłącznie 10 plików strony.
+- **[Pobierz ZIP do wgrania na hosting](do-pobrania/biblioteka-na-hosting.zip)** — na stronie pliku kliknij „Download raw file”. Rozpakuj i wgraj zawartość do pustego katalogu `htdocs/makieta/` na hostingu testowym. Paczka zawiera wyłącznie 11 plików strony (9 HTML, CSS i JavaScript).
 - [Strona główna](makieta/index.html): na początku godziny, adres, telefon i e-mail.
 - [Artykuły](makieta/artykuly.html): kategorie i trzy pełne przykładowe wpisy.
 - [Podgląd na komputerze](docs/makieta-desktop.png) i [telefonie](docs/makieta-mobile.png).
@@ -12,6 +12,8 @@
 - [Prawo i dostępność — analiza robocza](docs/prawo-i-dostepnosc.md).
 - [Co zrobić dalej — instrukcja dla początkującego](docs/co-dalej.md).
 - [Dane biblioteki przekazane do projektu](docs/dane-biblioteki.md).
+- [WordPress: instalacja, artykuły i nowe książki](docs/wordpress-jak-zaczac.md).
+- [Wynik próby wyszukania dokumentów i sprawdzenia katalogów](docs/sprawdzenie-dokumentow.md).
 
 ## Uruchomienie
 
@@ -38,4 +40,8 @@ Instrukcję uruchomienia i układ sprawdzamy w lokalnym Chromium, obejmując tel
 
 W tej sesji odczyt Dzikowca, BIP i gov.pl został zablokowany na połączeniu proxy. Inspiracja strukturą Dzikowca pochodzi z briefu użytkownika, a analiza prawna jest wstępna, ze źródłami do weryfikacji. Nie skopiowano tekstów, zdjęć, ikon ani deklaracji innej biblioteki. Sam zapis domen w projekcie ustawień nie zastosował dostępu do działającego środowiska.
 
-Sprawdzono osiem stron w Chromium na szerokościach 320, 375, 768, 1024 i 1440 px z tekstem 100% i 200%: brak przewijania poziomego. Wszystkie lokalne odnośniki i identyfikatory sprawdzono; każda strona odpowiada HTTP 200 i ma jeden H1. Działają menu klawiaturą, Escape, przejście do treści, fokus po przejściu do kontaktu, filtry kategorii i pełne artykuły. Bez błędów JavaScript, cookies, localStorage i żądań do zewnętrznych serwisów podczas sprawdzonego przeglądania. Menu i podmenu działają także bez JavaScriptu.
+Sprawdzono dziewięć stron w Chromium na szerokościach 320, 375, 768, 1024 i 1440 px z tekstem 100% i 200%: brak przewijania poziomego. Wszystkie lokalne odnośniki i identyfikatory sprawdzono; każda strona odpowiada HTTP 200 i ma jeden H1. Działają menu klawiaturą, Escape, przejście do treści, fokus po przejściu do kontaktu, filtry kategorii i pełne artykuły. Bez błędów JavaScript, cookies, localStorage i żądań do zewnętrznych serwisów podczas sprawdzonego przeglądania. Menu i podmenu działają także bez JavaScriptu.
+
+## Aktualny układ
+
+Godziny, kontakt i adres pozostają pierwsze. Ważne ogłoszenia mają osobny szeroki blok, katalog książek jest wyróżniony w menu i kartach placówek. Usunięto Na skróty, historię i regionalia; strefa czytelnika ma nowy wygląd bez oferty usług i cennika. Nie znaleziono zatwierdzonych dokumentów w tej sesji z powodu blokady źródeł przez proxy; ich status jest jawnie opisany na stronie.
