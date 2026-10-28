@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Makieta koncepcyjna strony Gminnej Biblioteki Publicznej w Raniżowie. Etap 1 — projekt układu i wyglądu.">
+  <title>Artykuły i aktualności — makieta biblioteki</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#tresc">Przejdź do treści</a>
+  <div class="draft-bar"><span>ETAP 1 · MAKIETA</span> &nbsp; Projekt do oceny. Treści przykładowe nie są ogłoszeniami biblioteki.</div>
+  <header>
+    <div class="wrap utility"><p>Biblioteka główna w Raniżowie · Filie: Wola Raniżowska i Mazury</p>      <div class="accessibility" role="group" aria-label="Ustawienia czytelności">
+        <span>Czytelność</span>
+        <button id="font-size" type="button" aria-label="Powiększ tekst" aria-pressed="false">A+</button>
+        <button id="contrast" type="button" aria-pressed="false"><span class="contrast-icon" aria-hidden="true"></span> <span>Kontrast</span></button>
+      </div>
+</div>
+    <div class="wrap brand-row">      <a class="brand" href="#tresc" aria-label="Gminna Biblioteka Publiczna w Raniżowie — początek strony">
+        <span class="brand-symbol" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M24 13c-5-5-11-6-18-5v28c7-1 13 0 18 5 5-5 11-6 18-5V8c-7-1-13 0-18 5Z"/><path d="M24 13v28M12 17l6 2m-6 6 6 2m12-8 6-2m-6 10 6-2"/></svg></span>
+        <span class="brand-name">Gminna Biblioteka Publiczna<strong>w Raniżowie</strong><span class="brand-note">Miejsce na logo · znak roboczy</span></span>
+      </a>
+
+      <p class="header-message">Książki, informacje i spotkania.<br><strong>Biblioteka blisko mieszkańców.</strong></p>
+      <button class="menu-toggle" type="button" aria-controls="menu" aria-expanded="true"><span class="menu-icon" aria-hidden="true"></span> Menu</button>
+    </div>
+    <div class="navigation-shell"><nav class="nav wrap" id="menu" aria-label="Menu główne">
+      <a href="index.html">Start</a>
+      <details class="nav-group"><summary>O bibliotece</summary><div class="submenu">
+        <a href="informacje.html#o-bibliotece">O nas</a><a href="informacje.html#historia">Historia biblioteki</a><a href="informacje.html#pracownicy">Struktura i pracownicy</a><a href="informacje.html#statut">Statut</a><a href="informacje.html#projekty">Projekty i dofinansowania</a>
+      </div></details>
+      <details class="nav-group"><summary>Artykuły i aktualności</summary><div class="submenu">
+        <a href="artykuly.html">Wszystkie artykuły</a><a href="artykuly.html?kategoria=wydarzenia">Wydarzenia</a><a href="artykuly.html?kategoria=dorosli">Nowości dla dorosłych</a><a href="artykuly.html?kategoria=dzieci">Dla dzieci i młodzieży</a><a href="artykuly.html?kategoria=recenzje">Recenzje</a><a href="artykuly.html?kategoria=ogloszenia">Ogłoszenia</a>
+      </div></details>
+      <details class="nav-group"><summary>Dla czytelników</summary><div class="submenu">
+        <a href="index.html#godziny">Godziny otwarcia</a><a href="informacje.html#zapisy">Jak się zapisać</a><a href="informacje.html#uslugi">Oferta i usługi</a><a href="informacje.html#regulamin">Regulamin i cennik</a><a href="index.html#wydarzenia">Kalendarz wydarzeń</a>
+      </div></details>
+      <details class="nav-group"><summary>Filie</summary><div class="submenu"><a href="index.html#filia-wola">Wola Raniżowska</a><a href="index.html#filia-mazury">Mazury</a></div></details>
+      <a href="index.html#regionalia">Regionalia</a><a href="index.html#galeria">Galeria</a>
+      <a href="index.html#kontakt">Kontakt i adres</a>
+    </nav></div>
+  </header><main id="tresc" tabindex="-1" class="wrap document-main"><p class="breadcrumbs"><a href="index.html">Strona główna</a> / Artykuły i aktualności</p><div class="document-heading"><p class="eyebrow">Czytaj, odkrywaj, bądź na bieżąco</p><h1>Artykuły i aktualności</h1><p>Zapowiedzi, relacje, książkowe nowości i ogłoszenia. Poniżej wyłącznie przykłady treści.</p></div><div class="filter-group" role="group" aria-label="Kategorie artykułów"><button type="button" data-filter="wszystkie" aria-pressed="true">Wszystkie</button><button type="button" data-filter="wydarzenia" aria-pressed="false">Wydarzenia</button><button type="button" data-filter="dorosli" aria-pressed="false">Nowości dla dorosłych</button><button type="button" data-filter="dzieci" aria-pressed="false">Dzieci i młodzież</button><button type="button" data-filter="recenzje" aria-pressed="false">Recenzje</button><button type="button" data-filter="ogloszenia" aria-pressed="false">Ogłoszenia</button></div><p id="article-count" role="status" aria-live="polite"></p>      <div class="news-grid">
+        <article class="news-card" data-category="wydarzenia"><div class="news-art art-sage" aria-hidden="true"><svg viewBox="0 0 360 180" fill="none"><circle cx="205" cy="83" r="63" fill="#F2CF66"/><path d="M81 137q50-37 99 0 50-37 99 0V56q-49-18-99 12-49-30-99-12Z" fill="#F8F6EF" stroke="#174C3C" stroke-width="2"/><path d="M180 69v68m-74-62q26-4 51 8m-51 9q26-4 51 8m48-17q25-12 51-8m-51 25q25-12 51-8" stroke="#174C3C" stroke-width="2"/><path d="M76 145h209" stroke="#174C3C" stroke-width="2"/></svg></div><div class="news-body"><span class="tag">Wydarzenia · przykład</span><h3><a href="artykul-spotkanie.html">Porozmawiajmy o książkach</a></h3><p>Miejsce na zapowiedź spotkania, jego datę i informacje o zapisach.</p><a class="read-link" href="artykul-spotkanie.html">Czytaj artykuł</a><span class="sample-note">Treść demonstracyjna · termin do ustalenia</span></div></article>
+        <article class="news-card" data-category="dorosli"><div class="news-art art-gold" aria-hidden="true"><svg viewBox="0 0 360 180" fill="none"><path d="M61 147h239" stroke="#174C3C" stroke-width="2"/><rect x="87" y="57" width="47" height="87" rx="2" fill="#174C3C"/><rect x="138" y="37" width="44" height="107" rx="2" fill="#A9553D"/><path d="m190 61 35-10 27 92-36 10Z" fill="#F8F6EF" stroke="#174C3C" stroke-width="2"/><path d="M97 70h27m-27 8h27m24-27h24m-24 8h24m-24 64h24" stroke="#F8F6EF"/><path d="m204 79 20-5m-17 14 20-5" stroke="#174C3C"/><path d="M270 46v20m-10-10h20" stroke="#174C3C" stroke-width="2"/></svg></div><div class="news-body"><span class="tag">Nowości książkowe · przykład</span><h3><a href="artykul-nowosci.html">Co nowego na półkach?</a></h3><p>Miejsce na przegląd nowych książek dla dorosłych, dzieci i młodzieży.</p><a class="read-link" href="artykul-nowosci.html">Czytaj artykuł</a><span class="sample-note">Treść demonstracyjna · tytuły do uzupełnienia</span></div></article>
+        <article class="news-card" data-category="dzieci"><div class="news-art art-peach" aria-hidden="true"><svg viewBox="0 0 360 180" fill="none"><circle cx="178" cy="87" r="60" fill="#F8F6EF"/><path d="m143 128 17-83 21 10-17 83Zm29 10 31-68 19 9-32 68Z" fill="#174C3C"/><path d="m143 128-1 17 22-7m8 0-2 17 20-8" fill="#F2CF66" stroke="#174C3C"/><path d="M110 145h146M244 40l4 10 12 2-9 8 2 12-10-6-10 6 2-12-9-8 13-2Z" stroke="#174C3C" stroke-width="2"/></svg></div><div class="news-body"><span class="tag">Dla dzieci · przykład</span><h3><a href="artykul-dzieci.html">Małe pomysły, wielka wyobraźnia</a></h3><p>Miejsce na opis zajęć, grupę wiekową i informację dla rodziców.</p><a class="read-link" href="artykul-dzieci.html">Czytaj artykuł</a><span class="sample-note">Treść demonstracyjna · oferta do potwierdzenia</span></div></article>
+      </div>
+<p id="empty-articles" hidden>W tej kategorii nie ma jeszcze przykładowych artykułów.</p></main>  <footer><div class="wrap"><div class="footer-grid">
+    <section aria-labelledby="contact-title"><h2 id="contact-title">Gminna Biblioteka Publiczna w Raniżowie</h2><p>ul. Wolska 35, 36-130 Raniżów</p><p><a href="tel:+48172277432">17 22 77 432</a> · <a href="mailto:gbp@ranizow.pl">gbp@ranizow.pl</a></p><p>Poniedziałek: 9:00–17:00<br>Wtorek–piątek: 8:00–16:00</p><p>Dane przekazane do projektu; przed publikacją sprawdź aktualność.</p></section>
+    <section aria-labelledby="shortcuts-title"><h2 id="shortcuts-title">Na skróty</h2><ul><li><a href="artykuly.html">Aktualności</a></li><li><a href="index.html#wydarzenia">Wydarzenia</a></li><li><a href="index.html#filie">Filie i punkty biblioteczne</a></li><li><a href="index.html#galeria">Galeria</a></li></ul></section>
+    <section aria-labelledby="public-title"><h2 id="public-title">Dokumenty i informacje publiczne</h2><ul><li><a href="deklaracja-dostepnosci.html">Deklaracja dostępności — szkic</a></li><li><a href="prywatnosc.html">Prywatność i cookies — szkic</a></li><li><a href="informacje.html#statut">Statut, regulaminy i ochrona dzieci</a></li><li><a href="https://bip.ranizow.pl/6742,6744/6744/">BIP — serwis zewnętrzny</a></li></ul><p class="footer-pending">BIP wskazany przez użytkownika; zakres informacji o bibliotece do potwierdzenia.</p></section>
+  </div><div class="footer-note">Makieta koncepcyjna · Etap 1 · Bez analityki, zewnętrznych map i zewnętrznych fontów. Przed publikacją należy uzupełnić i zatwierdzić dane.</div></div></footer>
+  <div class="sr-only" id="announcements" role="status" aria-live="polite"></div>
+</body>
+</html>
