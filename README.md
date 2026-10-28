@@ -11,7 +11,9 @@
 
 [Dokładna instrukcja instalacji, krok po kroku](docs/wordpress-instalacja-motywu.md).
 
-**Aktualizacja 1.0.1:** wgraj nowy ZIP tą samą drogą i wybierz **Zastąp obecny motyw przesłanym**. Wpisy pozostają w bazie. Kalendarz obsługuje również zapisany początek wydarzenia bez metadanych opcjonalnego końca. Po pełnym zapisie publicznego wpisu motyw zgłasza odświeżenie strony głównej do mechanizmu cache WordPressa. W **Wygląd → Sprawdź wpisy** administrator może sprawdzić pobierane wpisy, terminy i świeży podgląd. Brak zwykłych artykułów na zewnętrznym hostingu nadal wymaga potwierdzenia raportem; nie ustalono, czy wynika z cache lub innej konfiguracji.
+**Aktualizacja 1.0.2:** wgraj nowy ZIP tą samą drogą i wybierz **Zastąp obecny motyw przesłanym**. Wpisy pozostają w bazie. Po pełnym zapisie publicznego wpisu motyw odświeża także HTML strony głównej przez publiczne API W3 Total Cache, jeśli ta wtyczka działa. Samo `clean_post_cache` z 1.0.1 nie wystarczało do powiadomienia W3TC. Jego domyślna polityka pomija statyczną stronę główną, co odtworzono z oficjalnym kodem wtyczki. W **Performance → Page Cache → Purge Policy** zaznacz **Front page**, zapisz i wykonaj **Purge All Caches**. [Dokładne kroki](docs/wordpress-instalacja-motywu.md).
+
+Kalendarz zachowuje poprawkę 1.0.1 dotyczącą wydarzeń bez opcjonalnego końca. W **Wygląd → Sprawdź wpisy** administrator może sprawdzić pobierane wpisy, terminy, stan W3TC i świeży podgląd. Raport użytkownika potwierdził, że wpisy są publiczne i pobierane do sekcji, podczas gdy niezalogowani widzą starszą wersję; aktywną wtyczką cache jest W3 Total Cache.
 
 ## Dodawanie treści
 
@@ -35,7 +37,7 @@ Galeria korzysta z natywnego bloku WordPressa. Nie ma zależności od page-build
 
 ## Weryfikacja
 
-Motyw uruchomiono na WordPressie 7.1.3 z PHP 8.3.36 i MariaDB 11.4. Sprawdzono konfigurację, zachowanie treści, uprawnienia, formularz danych, natywny edytor, publikowanie książki i wydarzenia, daty i wygasanie ogłoszeń, galerię oraz responsywność dziewięciu typów stron z tekstem 100% i 200%. Aktualne uruchomienie zakończyło 58 sprawdzeń integracyjnych, 145 przeglądarkowych i 15 sprawdzeń publikacji przyciskami edytora. WordPress rozpakował ZIP i rozpoznał poprawny motyw 1.0.1. Dokumentacja zawiera odtwarzalne polecenia.
+Motyw uruchomiono na WordPressie 7.1.3 z PHP 8.3.36 i MariaDB 11.4. Sprawdzono konfigurację, zachowanie treści, uprawnienia, formularz danych, natywny edytor, publikowanie książki i wydarzenia, daty i wygasanie ogłoszeń, galerię oraz responsywność dziewięciu typów stron z tekstem 100% i 200%. Zaliczono 58 sprawdzeń integracyjnych, 145 przeglądarkowych, 15 sprawdzeń publikacji przyciskami edytora i pięć scenariuszy rzeczywistego API W3 Total Cache. WordPress rozpakował ZIP i rozpoznał poprawny motyw 1.0.2. Dokumentacja zawiera odtwarzalne polecenia i zakres weryfikacji.
 
 Paczka motywu jest przygotowana i sprawdzona lokalnie. Nie zainstalowano jej zdalnie na koncie hostingowym użytkownika. W WordPressie użytkownika potrzebne jest wgranie, aktywacja oraz uruchomienie konfiguracji.
 

@@ -2,20 +2,34 @@
 
 Gotowy motyw to **`biblioteka-ranizow-wordpress.zip`** w folderze `do-pobrania` repozytorium. Paczka HTML `biblioteka-na-hosting.zip` pozostaje dawną makietą i nie służy do instalacji motywu.
 
-## Aktualizacja już zainstalowanego motywu do 1.0.1
+## Gdy wpisy widać po zalogowaniu, ale nie w inkognito — W3 Total Cache
+
+Raport z instalacji wskazał aktywny W3 Total Cache oraz poprawnie opublikowane i pobierane wpisy. Ta wtyczka ma osobną opcję automatycznego czyszczenia statycznej strony głównej; domyślnie jest ona wyłączona. Włącz ją i usuń starą kopię:
+
+1. Zaloguj się jako administrator.
+2. Otwórz [Performance → Page Cache → Purge Policy](https://bibliotekaranizow.ct.ws/wp-admin/admin.php?page=w3tc_pgcache#purge_policy).
+3. Znajdź sekcję **Purge Policy: Page Cache**. Możesz użyć **Ctrl + F** i wyszukać **Front page**.
+4. Zaznacz **Front page**, czyli statyczną stronę główną.
+5. Kliknij **Save all settings**.
+6. Na górnym pasku najedź na **Performance** i kliknij **Purge All Caches**.
+7. W oknie inkognito otwórz zwykły adres **https://bibliotekaranizow.ct.ws/**, bez linku podglądu administratora. Sprawdź aktualności i kalendarz.
+
+W motywie 1.0.2 jest również jawne wywołanie publicznego API W3TC dla strony głównej po pełnym zapisaniu publicznego wpisu, także jego pól przez REST. Działa ono niezależnie od opcji Front page i nie zmienia ustawień wtyczki. Włączenie tej opcji jest nadal zalecane dla pozostałych zmian strony. Bez W3TC motyw korzysta ze standardowego odświeżania WordPressa.
+
+## Aktualizacja już zainstalowanego motywu do 1.0.2
 
 1. Pobierz ponownie [ZIP motywu](https://github.com/pkksa213/biblioteka/raw/refs/heads/main/do-pobrania/biblioteka-ranizow-wordpress.zip). Zachowaj plik ZIP bez rozpakowywania.
 2. Zaloguj się jako administrator i otwórz [wysyłanie motywu](https://bibliotekaranizow.ct.ws/wp-admin/theme-install.php?upload).
 3. Kliknij **Wybierz plik**, wskaż nowy ZIP i kliknij **Zainstaluj**.
-4. Gdy WordPress wykryje istniejący motyw, kliknij **Zastąp obecny motyw przesłanym**. Nowa wersja to **1.0.1**.
+4. Gdy WordPress wykryje istniejący motyw, kliknij **Zastąp obecny motyw przesłanym**. Nowa wersja to **1.0.2**.
 5. Nie trzeba ponownie przygotowywać stron ani dodawać wpisów. Aktualizacja podmienia pliki motywu; treści pozostają w bazie.
 6. Otwórz [Wygląd → Sprawdź wpisy](https://bibliotekaranizow.ct.ws/wp-admin/themes.php?page=br-posts).
 7. Kliknij **Otwórz świeży podgląd strony głównej**. Na górze zobaczysz wersję motywu i godzinę wygenerowania podglądu.
 8. Jeśli nadal brakuje wpisu, skopiuj raport z tego ekranu do rozmowy. Raport pokazuje aktualne ID wpisów pobieranych do sekcji, zapisany rodzaj, status, terminy wydarzeń, przypisanie stron i aktywne wtyczki. Nie zawiera haseł ani danych logowania.
 
-Poprawka kalendarza obejmuje wydarzenia, których termin rozpoczęcia jest zapisany, lecz opcjonalne zakończenie w bazie nie istnieje, jest puste lub ma wartość zero. Takie wydarzenie pozostaje widoczne do końca dnia rozpoczęcia. Minione wydarzenia i wpisy bez początku pozostają poza kalendarzem. Po zapisaniu publicznego wpisu motyw zgłasza odświeżenie strony głównej przez API WordPressa, także po zapisaniu pól przez REST. Nie gwarantuje to wyczyszczenia każdego zewnętrznego cache hostingu lub wtyczki.
+Poprawka kalendarza z 1.0.1 obejmuje wydarzenia, których termin rozpoczęcia jest zapisany, lecz opcjonalne zakończenie w bazie nie istnieje, jest puste lub ma wartość zero. Takie wydarzenie pozostaje widoczne do końca dnia rozpoczęcia. Minione wydarzenia i wpisy bez początku pozostają poza kalendarzem. Integracja cache obejmuje standardowy mechanizm WordPressa i publiczne API W3 Total Cache. Nie gwarantuje wyczyszczenia dowolnego dodatkowego cache poza nimi.
 
-Nie potwierdzono jeszcze przyczyny braku zwykłych artykułów na hostingu użytkownika: bezpośredni odczyt domeny jest blokowany przez sieć środowiska. W izolowanym WordPressie publikacja artykułu, wydarzenia i książki prawdziwymi przyciskami edytora powoduje ich pojawienie się w odpowiednich sekcjach. Raport służy ustaleniu różnicy bez zgadywania ustawień hostingu.
+Bezpośredni odczyt domeny nadal jest blokowany przez sieć środowiska. Diagnoza instalacji opiera się na raporcie użytkownika: wersja 1.0.1, W3TC, publiczne wpisy zwracane przez właściwe zapytania oraz różnica między świeżym podglądem a zwykłą stroną w inkognito. Przed poprawką odtworzono brak sygnału czyszczenia statycznej strony głównej z prawdziwym API W3TC i jego domyślną polityką. Nie sprawdzono jeszcze wyniku aktualizacji na zewnętrznym hostingu.
 
 ## 1. Pobierz właściwy plik
 

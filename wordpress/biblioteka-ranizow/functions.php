@@ -1,7 +1,7 @@
 <?php
 /** Funkcje motywu; dane wpisów pozostają w standardowych tabelach WordPressa. */
 if (!defined('ABSPATH')) { exit; }
-define('BR_THEME_VERSION', '1.0.1');
+define('BR_THEME_VERSION', '1.0.2');
 
 require_once get_template_directory() . '/inc/data.php';
 require_once get_template_directory() . '/inc/setup.php';

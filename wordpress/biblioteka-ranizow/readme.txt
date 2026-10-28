@@ -1,4 +1,4 @@
-Biblioteka Raniżów — motyw WordPressa 1.0.1
+Biblioteka Raniżów — motyw WordPressa 1.0.2
 =======================================
 
 Instalacja:
@@ -28,13 +28,17 @@ Nie pobiera sam książek z zewnętrznego katalogu. Nie zawiera formularza konta
 analityki, zewnętrznych fontów, page-buildera ani wymaganych płatnych wtyczek.
 Planowanie publikacji zależy od poprawnego działania harmonogramu WordPressa na hostingu.
 
-Aktualizacja z 1.0.0:
+Aktualizacja z 1.0.0 lub 1.0.1:
 Wgraj nowy ZIP w Wygląd → Motywy → Dodaj nowy → Wyślij motyw na serwer.
 Wybierz „Zastąp obecny motyw przesłanym”. Nie usuwaj wpisów ani WordPressa.
 Nie trzeba ponownie uruchamiać przygotowania stron.
 Wydarzenie bez zapisanego końca jest widoczne do końca dnia rozpoczęcia.
 Po zapisaniu opublikowanego wpisu motyw odświeża cache strony głównej przez API
-WordPressa. Dodatkowy cache hostingu lub wtyczki może wymagać własnego czyszczenia.
+WordPressa. Jeśli działa W3 Total Cache, odświeża także HTML strony głównej
+przez publiczną funkcję wtyczki, po zapisaniu rodzaju i terminu wydarzenia.
+Inny cache hostingu lub wtyczki może wymagać własnego czyszczenia.
+W3 Total Cache: Performance → Page Cache → Purge Policy → zaznacz Front page,
+Save all settings, następnie Performance → Purge All Caches.
 Wygląd → Sprawdź wpisy pokazuje raport pobieranych wpisów i zapisanych terminów.
 Raport i świeży podgląd są dostępne wyłącznie dla administratora.
 

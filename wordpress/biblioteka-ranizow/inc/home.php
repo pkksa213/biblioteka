@@ -36,6 +36,9 @@ function br_refresh_home() {
     $front_id = absint(get_option('page_on_front'));
     if ($front_id) { clean_post_cache($front_id); }
     wp_cache_set_posts_last_changed();
+    // W3TC nie nasłuchuje clean_post_cache, a jego domyślna polityka pomija
+    // statyczną stronę główną. Opróżnij jej HTML przez publiczne API wtyczki.
+    if (function_exists('w3tc_flush_url')) { w3tc_flush_url(home_url('/')); }
 }
 // W REST save_post następuje przed zapisem pól. Powiadomienie o stronie
 // zbierającej wpisy musi nastąpić po zapisaniu także rodzaju i terminu.
@@ -64,6 +67,12 @@ function br_home_diagnostic_report() {
     $lines[] = 'Plik index.html obok WordPressa: ' . (is_file(ABSPATH . 'index.html') ? 'ISTNIEJE — sprawdź, czy nie zasłania index.php' : 'brak');
     $lines[] = 'WP_CACHE: ' . (defined('WP_CACHE') && WP_CACHE ? 'tak' : 'nie');
     $lines[] = 'Wtyczki: ' . implode(', ', get_option('active_plugins', array()));
+    if (class_exists('W3TC\\Dispatcher')) {
+        $w3tc = W3TC\Dispatcher::config();
+        $lines[] = 'W3TC Page Cache: ' . ($w3tc->get_boolean('pgcache.enabled') ? 'tak' : 'nie');
+        $lines[] = 'W3TC automatyczne czyszczenie Front page: ' . ($w3tc->get_boolean('pgcache.purge.front_page') ? 'tak' : 'nie');
+        $lines[] = 'W3TC API odświeżania przez motyw: ' . (function_exists('w3tc_flush_url') ? 'dostępne' : 'brak');
+    }
     $visible = array();
     foreach (array('news' => 'Aktualności', 'events' => 'Kalendarz', 'books' => 'Książki', 'notices' => 'Ogłoszenia') as $section => $label) {
         $query = br_home_query($section);

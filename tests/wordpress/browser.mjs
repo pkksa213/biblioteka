@@ -89,7 +89,7 @@ try {
   check(diagnostic.includes('Testowe spotkanie') && diagnostic.includes('Początek:'), 'Raport nie wyświetla zapisanych terminów.');
   const previewLink = await admin.getByRole('link', { name: 'Otwórz świeży podgląd strony głównej', exact: true }).getAttribute('href');
   const preview = await admin.goto(previewLink);
-  check(preview.status() === 200 && (await admin.locator('body').innerText()).includes('Podgląd administratora — motyw 1.0.1'), 'Podgląd nie uruchamia obecnej wersji motywu.');
+  check(preview.status() === 200 && (await admin.locator('body').innerText()).includes('Podgląd administratora — motyw 1.0.2'), 'Podgląd nie uruchamia obecnej wersji motywu.');
   check((await preview.headerValue('cache-control')).includes('no-cache') && (await preview.headerValue('x-robots-tag')).includes('noindex'), 'Podgląd diagnostyczny może być zapisany w cache lub indeksie.');
   const guestPreview = await guest.request.get(previewLink);
   check(guestPreview.status() === 403, 'Niezalogowany czytelnik ma dostęp do podglądu diagnostycznego.');

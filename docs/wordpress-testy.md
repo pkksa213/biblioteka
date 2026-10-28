@@ -16,15 +16,23 @@ Motyw sprawdzono na lokalnej instalacji **WordPress 7.1.3, PHP 8.3.36 i MariaDB 
 - Sprawdzono dziewięć typów stron, szerokości 320, 375, 768, 1024 i 1440 px oraz tekst 100% i 200%, link do treści, klawiaturę, Escape, menu mobilne, wyszukiwanie i przełączniki czytelności.
 - Podczas sprawdzonego przeglądania niezalogowanej strony motyw nie wykonywał zewnętrznych żądań. Nie dodaje analityki, cookies ani zewnętrznych fontów.
 
-Aktualne uruchomienie zakończyło **58 sprawdzeń integracyjnych, 145 przeglądarkowych i 15 sprawdzeń rzeczywistej publikacji**. Osobny test `homepage.mjs` publikuje artykuł, wydarzenie i książkę prawdziwymi przyciskami edytora po wcześniejszym odwiedzeniu strony głównej; sprawdza status, metadane, podstronę, archiwum i sekcję na stronie głównej. Test przeglądarkowy weryfikuje także dostępność raportu tylko dla administratora oraz nagłówki bez cache i indeksowania w podglądzie. WordPress rozpakował ZIP i rozpoznał poprawny motyw Biblioteka Raniżów **1.0.1**. Nie są to certyfikat dostępności, audyt całej przyszłej treści ani gwarancja zgodności z każdym hostingiem i zestawem wtyczek.
+Końcowe uruchomienie zaliczyło **58 sprawdzeń integracyjnych, 145 przeglądarkowych, 15 sprawdzeń rzeczywistej publikacji i pięć scenariuszy API W3TC**. Osobny test `homepage.mjs` publikuje artykuł, wydarzenie i książkę prawdziwymi przyciskami edytora po wcześniejszym odwiedzeniu strony głównej; sprawdza status, metadane, podstronę, archiwum i sekcję na stronie głównej. Test przeglądarkowy weryfikuje także dostępność raportu tylko dla administratora oraz nagłówki bez cache i indeksowania w podglądzie. WordPress rozpakował ZIP i rozpoznał poprawny motyw Biblioteka Raniżów **1.0.2**. Nie są to certyfikat dostępności, audyt całej przyszłej treści ani gwarancja zgodności z każdym hostingiem i zestawem wtyczek.
 
 ### Regresja kalendarza i ograniczenia diagnozy
 
 Przed poprawką 1.0.1 test opublikowanego wydarzenia z przyszłym początkiem i końcem `0` kończył się błędem: **„Wydarzenie bez opcjonalnego zakończenia znika z kalendarza”**. To samo dotyczyło brakujących lub pustych metadanych zakończenia. Po poprawce zapytanie wyświetla je do końca dnia rozpoczęcia w strefie WordPressa. Test obejmuje też bieżący dzień, wydarzenie minione i brak początku.
 
-Sprawdzono sygnał odświeżenia strony głównej po publikacji, wycofaniu i trwałym usunięciu wpisu. Zmiana niepublicznego szkicu go nie wywołuje. To integracja ze standardowym `clean_post_cache`, nie obietnica czyszczenia dowolnego cache poza WordPressem.
+Sprawdzono sygnał odświeżenia strony głównej po publikacji, wycofaniu i trwałym usunięciu wpisu. Zmiana niepublicznego szkicu go nie wywołuje. W 1.0.2 standardowe `clean_post_cache` uzupełniono o publiczne `w3tc_flush_url(home_url('/'))`, jeśli funkcja jest dostępna.
 
-Nie odtworzono braku zwykłego artykułu: w lokalnym środowisku prawdziwa publikacja powoduje wyświetlenie na stronie głównej. Bezpośredni odczyt domeny użytkownika pozostaje zablokowany przez politykę sieci. Nie można przypisać konkretnej przyczyny jego hostingowi bez raportu z **Wygląd → Sprawdź wpisy** lub danych instalacji.
+Raport z instalacji użytkownika potwierdził, że publiczne wpisy są pobierane do sekcji, lecz odwiedzający w inkognito widzą starszą kopię; aktywny jest W3 Total Cache. Oficjalny kod W3TC domyślnie ustawia `pgcache.purge.front_page=false`, a przy statycznej stronie głównej `pgcache.purge.home=true` dotyczy osobnej listy wpisów. W3TC nie nasłuchuje `clean_post_cache` używanego przez motyw 1.0.1. To odtworzony problem zgodności z jego polityką cache. Stan konkretnej opcji użytkownika oraz wynik czyszczenia na hostingu wymagają sprawdzenia w jego panelu.
+
+### Integracja z prawdziwym API W3 Total Cache
+
+Użyto kodu W3TC **2.11.0** z [oficjalnego repozytorium BoldGrid, commit d71b0c7](https://github.com/BoldGrid/w3-total-cache/tree/d71b0c7e9ecd143e07d25e667daf64759d453bf4). Przed poprawką `tests/wordpress/w3tc.php publish` kończył się błędem **„W3TC: błędne odświeżanie statycznej strony głównej — publish”**. Po poprawce zaliczono pięć scenariuszy: publikacja, publikacja wydarzenia przez REST, wycofanie, usunięcie i zmiana szkicu. W REST sygnał występuje po zapisaniu rodzaju i pełnego terminu. Szkic nie powoduje sygnału.
+
+Test ładuje rzeczywiste API i komponent strony cache z plików w `/tmp/biblioteka-w3tc-test` kontenera. Ustawienia wtyczki zmienia wyłącznie w pamięci procesu, bez ich zapisu i bez aktywowania wtyczki w testowej witrynie. Weryfikuje jej rzeczywiste powiadomienie `w3tc_flush_url`; nie jest testem odczytu gotowego pliku HTML przez serwer cache ani CDN.
+
+Źródła testowe można odtworzyć poza repozytorium przez pobranie archiwum wskazanego commitu z `https://codeload.github.com/BoldGrid/w3-total-cache/tar.gz/d71b0c7e9ecd143e07d25e667daf64759d453bf4` z zachowaniem TLS, rozpakowanie i `docker cp` do wskazanej ścieżki kontenera. Następnie uruchom we własnym kontenerze `php /project/tests/wordpress/w3tc.php SCENARIUSZ`, osobno dla `publish`, `rest`, `withdraw`, `delete` i `draft`. Skrypt wymaga lokalnego środowiska projektu i wygenerowanych kont testowych. Pliki W3TC nie są dołączane do ZIP-a motywu.
 
 ## Powtórzenie w środowisku projektu
 
