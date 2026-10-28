@@ -4,6 +4,7 @@
 
 ## Zobacz projekt
 
+- **[Pobierz ZIP do wgrania na hosting](do-pobrania/biblioteka-na-hosting.zip)** — na stronie pliku kliknij „Download raw file”. Rozpakuj i wgraj zawartość do pustego katalogu `htdocs/makieta/` na hostingu testowym. Paczka zawiera wyłącznie 10 plików strony.
 - [Strona główna](makieta/index.html): na początku godziny, adres, telefon i e-mail.
 - [Artykuły](makieta/artykuly.html): kategorie i trzy pełne przykładowe wpisy.
 - [Podgląd na komputerze](docs/makieta-desktop.png) i [telefonie](docs/makieta-mobile.png).
