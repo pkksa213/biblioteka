@@ -33,7 +33,6 @@ Makieta ma rozwijane menu, skróty do sekcji i osobne strony HTML artykułów or
 │   ├── /aktualnosci/wydarzenia/                 kategoria zapowiedzi i relacji
 │   ├── /aktualnosci/nowosci-dla-doroslych/
 │   ├── /aktualnosci/nowosci-dla-dzieci/
-│   ├── /aktualnosci/recenzje/
 │   ├── /aktualnosci/ogloszenia/
 │   └── /aktualnosci/tytul-wpisu/                pojedynczy wpis
 ├── /wydarzenia/                                lista nadchodzących wydarzeń
