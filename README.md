@@ -13,7 +13,7 @@
 
 **Aktualizacja 1.0.2:** wgraj nowy ZIP tą samą drogą i wybierz **Zastąp obecny motyw przesłanym**. Wpisy pozostają w bazie. Po pełnym zapisie publicznego wpisu motyw odświeża także HTML strony głównej przez publiczne API W3 Total Cache, jeśli ta wtyczka działa. Samo `clean_post_cache` z 1.0.1 nie wystarczało do powiadomienia W3TC. Jego domyślna polityka pomija statyczną stronę główną, co odtworzono z oficjalnym kodem wtyczki. W **Performance → Page Cache → Purge Policy** zaznacz **Front page**, zapisz i wykonaj **Purge All Caches**. [Dokładne kroki](docs/wordpress-instalacja-motywu.md).
 
-Kalendarz zachowuje poprawkę 1.0.1 dotyczącą wydarzeń bez opcjonalnego końca. W **Wygląd → Sprawdź wpisy** administrator może sprawdzić pobierane wpisy, terminy, stan W3TC i świeży podgląd. Raport użytkownika potwierdził, że wpisy są publiczne i pobierane do sekcji, podczas gdy niezalogowani widzą starszą wersję; aktywną wtyczką cache jest W3 Total Cache.
+Kalendarz zachowuje poprawkę 1.0.1 dotyczącą wydarzeń bez opcjonalnego końca. W **Wygląd → Sprawdź wpisy** administrator może sprawdzić pobierane wpisy, terminy, stan W3TC i świeży podgląd. Raport użytkownika potwierdził, że wpisy są publiczne i pobierane do sekcji, podczas gdy niezalogowani widzą starszą wersję. Po **Purge All Caches** w W3 Total Cache użytkownik potwierdził widoczność nowych wpisów i wydarzeń w inkognito, co potwierdza przyczynę w cache dla gości.
 
 ## Dodawanie treści
 

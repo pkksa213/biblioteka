@@ -29,7 +29,7 @@ W motywie 1.0.2 jest również jawne wywołanie publicznego API W3TC dla strony 
 
 Poprawka kalendarza z 1.0.1 obejmuje wydarzenia, których termin rozpoczęcia jest zapisany, lecz opcjonalne zakończenie w bazie nie istnieje, jest puste lub ma wartość zero. Takie wydarzenie pozostaje widoczne do końca dnia rozpoczęcia. Minione wydarzenia i wpisy bez początku pozostają poza kalendarzem. Integracja cache obejmuje standardowy mechanizm WordPressa i publiczne API W3 Total Cache. Nie gwarantuje wyczyszczenia dowolnego dodatkowego cache poza nimi.
 
-Bezpośredni odczyt domeny nadal jest blokowany przez sieć środowiska. Diagnoza instalacji opiera się na raporcie użytkownika: wersja 1.0.1, W3TC, publiczne wpisy zwracane przez właściwe zapytania oraz różnica między świeżym podglądem a zwykłą stroną w inkognito. Przed poprawką odtworzono brak sygnału czyszczenia statycznej strony głównej z prawdziwym API W3TC i jego domyślną polityką. Nie sprawdzono jeszcze wyniku aktualizacji na zewnętrznym hostingu.
+Bezpośredni odczyt domeny nadal jest blokowany przez sieć środowiska. Diagnoza instalacji opiera się na raporcie użytkownika: wersja 1.0.1, W3TC, publiczne wpisy zwracane przez właściwe zapytania oraz różnica między świeżym podglądem a zwykłą stroną w inkognito. Użytkownik potwierdził, że po **Purge All Caches** nowe wpisy i wydarzenia są widoczne w inkognito. Przed poprawką odtworzono też brak sygnału czyszczenia statycznej strony głównej z prawdziwym API W3TC i jego domyślną polityką. Nie sprawdzono jeszcze instalacji motywu 1.0.2 na zewnętrznym hostingu.
 
 ## 1. Pobierz właściwy plik
 

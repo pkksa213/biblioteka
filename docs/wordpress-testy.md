@@ -24,7 +24,7 @@ Przed poprawką 1.0.1 test opublikowanego wydarzenia z przyszłym początkiem i 
 
 Sprawdzono sygnał odświeżenia strony głównej po publikacji, wycofaniu i trwałym usunięciu wpisu. Zmiana niepublicznego szkicu go nie wywołuje. W 1.0.2 standardowe `clean_post_cache` uzupełniono o publiczne `w3tc_flush_url(home_url('/'))`, jeśli funkcja jest dostępna.
 
-Raport z instalacji użytkownika potwierdził, że publiczne wpisy są pobierane do sekcji, lecz odwiedzający w inkognito widzą starszą kopię; aktywny jest W3 Total Cache. Oficjalny kod W3TC domyślnie ustawia `pgcache.purge.front_page=false`, a przy statycznej stronie głównej `pgcache.purge.home=true` dotyczy osobnej listy wpisów. W3TC nie nasłuchuje `clean_post_cache` używanego przez motyw 1.0.1. To odtworzony problem zgodności z jego polityką cache. Stan konkretnej opcji użytkownika oraz wynik czyszczenia na hostingu wymagają sprawdzenia w jego panelu.
+Raport z instalacji użytkownika potwierdził, że publiczne wpisy są pobierane do sekcji, lecz odwiedzający w inkognito widzą starszą kopię; aktywny jest W3 Total Cache. Po **Purge All Caches** użytkownik potwierdził, że nowe wpisy i wydarzenia są widoczne również w inkognito. Oficjalny kod W3TC domyślnie ustawia `pgcache.purge.front_page=false`, a przy statycznej stronie głównej `pgcache.purge.home=true` dotyczy osobnej listy wpisów. W3TC nie nasłuchuje `clean_post_cache` używanego przez motyw 1.0.1. To odtworzony problem zgodności z jego polityką cache. Nie odczytano jeszcze stanu konkretnej opcji użytkownika ani nie sprawdzono jego instalacji motywu 1.0.2.
 
 ### Integracja z prawdziwym API W3 Total Cache
 
