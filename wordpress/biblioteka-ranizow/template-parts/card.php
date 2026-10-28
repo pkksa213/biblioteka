@@ -1,0 +1,5 @@
+<?php if (!defined('ABSPATH')) { exit; } $heading = isset($args['heading']) && $args['heading'] === 'h3' ? 'h3' : 'h2'; ?>
+<article <?php post_class('news-card'); ?>>
+    <div class="news-art art-sage"><?php if (has_post_thumbnail()) { ?><a href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true"><?php the_post_thumbnail('br-card', array('alt' => '')); ?></a><?php } else { ?><span class="post-icon" aria-hidden="true"><?php echo br_icon(); ?></span><?php } ?></div>
+    <div class="news-body"><div class="tag"><?php $categories = get_the_category(); echo $categories ? esc_html($categories[0]->name) : 'Aktualności'; ?></div><<?php echo $heading; ?> class="card-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></<?php echo $heading; ?>><p class="post-date"><time datetime="<?php echo esc_attr(get_the_date(DATE_W3C)); ?>"><?php echo esc_html(get_the_date()); ?></time></p><p><?php echo esc_html(wp_trim_words(get_the_excerpt(), 25)); ?></p><a class="read-link" href="<?php the_permalink(); ?>">Czytaj: <?php the_title(); ?></a></div>
+</article>

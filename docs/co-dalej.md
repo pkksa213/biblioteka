@@ -1,3 +1,7 @@
+# Aktualnie: gotowy motyw WordPressa
+
+Jeśli WordPress jest już zainstalowany, użyj [instrukcji instalacji gotowego motywu](wordpress-instalacja-motywu.md). Paczka `biblioteka-ranizow-wordpress.zip` to nowy plik instalacyjny; wcześniejszy ZIP i poniższe kroki HTML dotyczą zachowanej makiety.
+
 # Co zrobić z projektem — prosta instrukcja
 
 ## Co jest gotowe teraz
@@ -32,7 +36,7 @@ Wszystkie podstrony mają `noindex`, ale to **nie jest ochrona dostępu**. Jeże
 ## 3. Docelowo przejdziemy do WordPressa
 
 1. Po ocenie poprawionego wyglądu przygotujemy instalację testową WordPressa i wymagania dla wybranego hostingu.
-2. Zbudujemy lekki motyw i wzorce na podstawie makiety. Samo wgranie obecnego `index.html` do motywów WordPressa nie zadziała.
+2. Gotowy motyw jest w paczce `biblioteka-ranizow-wordpress.zip`. Zainstaluj, włącz i uruchom przygotowanie strony zgodnie z nową instrukcją.
 3. Utworzymy strony i kategorie. Kierowniczka będzie dodawać artykuły w **Wpisy → Dodaj nowy**, z tytułem, treścią, kategorią, zdjęciem i datą publikacji.
 4. Wdrożymy wydarzenia, kopie, role, 2FA i potrzebne wtyczki. Nie dokładamy formularza ani statystyk, zgodnie z decyzją użytkownika.
 5. Biblioteka sprawdzi treści, prawa do zdjęć, dokumenty i dane; wykonamy badanie dostępności oraz uzupełnimy deklarację na podstawie wyników.
@@ -48,4 +52,4 @@ Nie potrzebuję Twojego hasła do GitHuba ani tokenu w czacie. Dostęp do hostin
 
 ## Instalacja WordPressa i nowe książki
 
-Szczegółowa instrukcja dla początkującego: [WordPress — jak zacząć](wordpress-jak-zaczac.md). Samo zainstalowanie WordPressa nie przenosi makiety do motywu. Nowe książki, artykuły i ważne ogłoszenia będzie dodawać redakcja, a wdrożone szablony pokażą je na stronie. Zewnętrzny katalog nie jest automatycznie importowany.
+Szczegółowa instrukcja dla początkującego: [WordPress — jak zacząć](wordpress-jak-zaczac.md). Po instalacji WordPressa trzeba jeszcze wgrać i włączyć gotowy motyw. Nowe książki, artykuły i ważne ogłoszenia będzie dodawać redakcja, a wdrożone szablony pokażą je na stronie. Zewnętrzny katalog nie jest automatycznie importowany.

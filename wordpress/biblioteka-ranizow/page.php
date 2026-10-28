@@ -1,0 +1,2 @@
+<?php if (!defined('ABSPATH')) { exit; } get_header(); ?>
+<main id="tresc" tabindex="-1" class="wrap document-main"><p class="breadcrumbs"><a href="<?php echo esc_url(home_url('/')); ?>">Strona główna</a></p><?php while (have_posts()) { the_post(); ?><article <?php post_class('article-detail'); ?>><h1><?php the_title(); ?></h1><div class="entry-content"><?php the_content(); wp_link_pages(); ?></div><?php if (trim(get_the_content()) === '') { ?><p>Informacje w przygotowaniu.</p><?php } ?></article><?php } ?></main><?php get_footer(); ?>

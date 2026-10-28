@@ -1,3 +1,7 @@
+# Aktualizacja wdrożenia
+
+Wygląd został przeniesiony do lekkiego motywu `wordpress/biblioteka-ranizow/` ze standardowym edytorem blokowym treści. Wydarzenia, książki i ogłoszenia działają jako zwykłe wpisy z panelem Treść biblioteki; dodatkowa wtyczka kalendarza nie jest wymagana. [Instalacja motywu](wordpress-instalacja-motywu.md). Poniżej zachowano wcześniejszy plan projektowy, którego propozycje narzędzi nie są listą wymaganych zależności obecnego motywu.
+
 # Etap 1 — plan strony biblioteki w Raniżowie
 
 **Status: propozycja do oceny, po poprawce hierarchii informacji.** Nie jest to wdrożony WordPress. Zgodnie z briefem następny etap rozpocznie się po „dalej”. Makieta HTML pokazuje kierunek wizualny; opisy poniżej określają docelowe podstrony i działanie panelu.

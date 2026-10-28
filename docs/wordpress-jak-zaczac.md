@@ -1,3 +1,7 @@
+# Aktualizacja: gotowy motyw WordPressa
+
+Motyw jest już przygotowany. Jeśli masz zainstalowanego WordPressa, przejdź do [instrukcji instalacji motywu](wordpress-instalacja-motywu.md). Poniższa instrukcja dotyczy głównie instalacji samego WordPressa. Zachowana makieta HTML to osobna paczka.
+
 # WordPress — instalacja i dodawanie treści
 
 ## Co mamy teraz, a co daje WordPress
@@ -6,7 +10,7 @@ Obecny ZIP to makieta HTML. Pokazuje wygląd i odnośniki, ale nie ma bazy ani p
 
 WordPress działa na hostingu z PHP i bazą danych. Udostępnia panel logowania, edytor, konta użytkowników i bibliotekę mediów. Motyw określa wygląd; treści zapisuje się w bazie. Po prawidłowym wdrożeniu motywu kierowniczka będzie dodawać treści bez edycji HTML i bez GitHuba.
 
-**Samo zainstalowanie WordPressa nie przenosi wyglądu makiety.** Potrzebne jest jeszcze przygotowanie i zainstalowanie naszego motywu lub odpowiednich szablonów blokowych. Obecnego ZIP-a z HTML nie należy przesyłać jako motywu w panelu WordPressa. W tym etapie nie dostarczono jeszcze motywu ani nie wykonano instalacji na koncie użytkownika.
+**Samo zainstalowanie WordPressa nie przenosi wyglądu makiety.** Teraz dostępny jest gotowy motyw w paczce `biblioteka-ranizow-wordpress.zip`; zainstaluj go zgodnie z osobną instrukcją. Paczka HTML pozostaje makietą. Instalację na koncie użytkownika wykonuje użytkownik w panelu administratora.
 
 ## Jak zainstalować wersję testową na InfiniteFree
 
@@ -21,7 +25,7 @@ Nazwy elementów panelu mogą zależeć od jego wersji. Poniższa instrukcja opi
 7. Po instalacji otwórz adres z dopiskiem `/wordpress-test/wp-admin/` i zaloguj się. W instalacji przez aplikację panelu dane administratora ustawia się w odpowiednim kroku instalatora.
 8. W **Ustawienia → Ogólne** wybierz język polski i strefę **Europe/Warsaw**, aby WordPress uwzględniał zmianę czasu. W **Ustawienia → Bezpośrednie odnośniki** wybierz czytelny schemat adresów, np. „Nazwa wpisu”.
 9. Usuń przykładowe wpisy, wyłącz komentarze, jeśli nie będą potrzebne, i pozostaw testową stronę bez indeksowania. Utwórz konto Redaktora dla kierowniczki; konta Administratora używaj do obsługi technicznej. Wdróż 2FA i kopie oraz sprawdź odtworzenie.
-10. Przed odtwarzaniem naszego wyglądu potrzebny jest etap wdrożenia motywu. Nie wystarczy aktywować dowolnego motywu, żeby sekcje z makiety zapełniały się treścią. Po konfiguracji wybierz w **Ustawienia → Czytanie** przygotowaną stronę główną i stronę wpisów.
+10. Zainstaluj `biblioteka-ranizow-wordpress.zip`, włącz motyw i wybierz **Wygląd → Uruchom bibliotekę → Przygotuj stronę biblioteki**. Ta czynność ustawia stronę główną i listę wpisów, wykorzystując istniejące strony.
 
 Na docelową domenę przenosimy dopiero sprawdzone wdrożenie. Przed produkcją trzeba ocenić hosting, HTTPS, umowy, kopie i aktualizacje oraz dokumenty i dostępność strony instytucji. Nie zmieniamy adresu działającego WordPressa w ustawieniach bez zaplanowanego przeniesienia plików i bazy.
 
@@ -30,9 +34,9 @@ Na docelową domenę przenosimy dopiero sprawdzone wdrożenie. Przed produkcją 
 **Nie pobiera ich automatycznie z katalogu bibliotecznego.** Proponowany prosty sposób redakcji:
 
 1. Kierowniczka otwiera **Wpisy → Dodaj nowy**.
-2. Wpisuje tytuł i autora książki, dodaje krótki opis, legalnie pozyskaną okładkę oraz link do odpowiedniej pozycji w zewnętrznym katalogu.
-3. Wybiera kategorię „Nowości książkowe” oraz grupę odbiorców i klika **Opublikuj** albo planuje datę.
-4. **Po przygotowaniu motywu** odpowiednie bloki strony głównej automatycznie pokażą ostatnie opublikowane wpisy z ustalonych kategorii. Nie trzeba ręcznie przebudowywać strony głównej.
+2. W zakładce **Wpis → Treść biblioteki** wybiera **Nowa książka**.
+3. Wpisuje autora, opis, opcjonalny link do katalogu i dodaje okładkę jako zdjęcie wyróżniające. Wybiera grupę odbiorców w kategoriach.
+4. Kliknięcie **Opublikuj** dodaje książkę do sekcji nowości. Szkic czeka na publikację. Planowanie wymaga działającego harmonogramu WordPressa na hostingu.
 
 Wariant „jedna książka = jeden wpis” jest prosty i pozwala użyć zdjęcia wyróżniającego. Można też publikować artykuły z kilkoma nowościami, jeśli taki układ wybierze redakcja. To decyzja o treści i szablonie podczas wdrożenia.
 
@@ -44,7 +48,7 @@ Automatyczne pobieranie nowości z zewnętrznego katalogu wymaga potwierdzonego 
 | --- | --- | --- |
 | Artykuł / relacja | Wpisy → Dodaj nowy; kategoria, zdjęcie i treść | Pokazać najnowsze opublikowane wpisy w ustalonych sekcjach |
 | Nowa książka | Wpis z kategorią „Nowości książkowe”, opisem, okładką i linkiem do katalogu | Pokazać ostatnie wpisy książkowe na stronie głównej |
-| Ważne ogłoszenie | Wpis z kategorią „Ogłoszenia”; oznaczenie jako ważne i termin wyświetlania do przygotowania we wdrożeniu | Wyświetlić aktywne ogłoszenie w żółtym bloku, gdy taki mechanizm zostanie wdrożony |
+| Ważne ogłoszenie | Wpis z kategorią „Ogłoszenia”; rodzaj Ważne ogłoszenie i opcjonalny termin wygaśnięcia | Wyświetlić aktywne ogłoszenie w żółtym bloku, w czasie aktywności wpisu |
 | Wydarzenie | Moduł wydarzeń z datą, godziną, miejscem i opisem | Pokazać nadchodzące wydarzenia i przenieść minione do archiwum |
 | Godziny, kontakt, regulamin | Strony / przygotowany wspólny blok danych, dostępne dla Redaktora | Powtarzać te same zatwierdzone dane w nagłówku, treści i stopce |
 | Katalog książek i dostępność zbiorów | Dane utrzymuje biblioteka w swoim systemie katalogowym; strona prowadzi do katalogu | Sam link przekierowuje użytkownika; WordPress nie zmienia stanów wypożyczeń |

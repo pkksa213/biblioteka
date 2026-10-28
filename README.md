@@ -1,47 +1,44 @@
 # Gminna Biblioteka Publiczna w Raniżowie
 
-**Etap 1 — poprawiona makieta i plan strony WordPress.** To działający przykład HTML, nie gotowy motyw WordPressa ani oficjalny serwis biblioteki.
+**Gotowy motyw WordPressa** przenoszący uzgodnioną makietę do działającego panelu redakcyjnego. Godziny, adres i kontakt są na początku; katalogi oraz ogłoszenia są wyróżnione. Bez recenzji, historii, regionaliów, bocznej sekcji Na skróty, oferty usług i cennika.
 
-## Zobacz projekt
+## Zainstaluj na swoim WordPressie
 
-- **[Pobierz ZIP do wgrania na hosting](do-pobrania/biblioteka-na-hosting.zip)** — na stronie pliku kliknij „Download raw file”. Rozpakuj i wgraj zawartość do pustego katalogu `htdocs/makieta/` na hostingu testowym. Paczka zawiera wyłącznie 11 plików strony (9 HTML, CSS i JavaScript).
-- [Strona główna](makieta/index.html): na początku godziny, adres, telefon i e-mail.
-- [Artykuły](makieta/artykuly.html): kategorie i trzy pełne przykładowe wpisy.
-- [Podgląd na komputerze](docs/makieta-desktop.png) i [telefonie](docs/makieta-mobile.png).
-- [Plan, mapa serwisu, kolory, fonty i wtyczki](docs/etap-1-plan.md).
-- [Prawo i dostępność — analiza robocza](docs/prawo-i-dostepnosc.md).
-- [Co zrobić dalej — instrukcja dla początkującego](docs/co-dalej.md).
+1. **[Pobierz ZIP motywu](do-pobrania/biblioteka-ranizow-wordpress.zip)** — na stronie pliku kliknij „Download raw file”.
+2. WordPress: **Wygląd → Motywy → Dodaj nowy → Wyślij motyw na serwer**. Wybierz ZIP, zainstaluj i włącz.
+3. **Wygląd → Uruchom bibliotekę → Przygotuj stronę biblioteki**.
+4. W **Dane biblioteki** sprawdź telefony, adresy, godziny i katalogi.
+
+[Dokładna instrukcja instalacji, krok po kroku](docs/wordpress-instalacja-motywu.md).
+
+## Dodawanie treści
+
+W **Wpisy → Dodaj nowy**, w prawej zakładce **Wpis → Treść biblioteki**, wybierz **Artykuł, Nowa książka, Wydarzenie albo Ważne ogłoszenie**. Opublikowane treści pojawiają się w odpowiednich sekcjach. W klasycznym edytorze panel jest pod treścią. Katalog biblioteczny pozostaje zewnętrznym systemem; motyw nie importuje z niego automatycznie książek.
+
+Redaktor może dodawać treści i zmieniać dane biblioteki. Konfiguracja początkowa jest dostępna dla Administratora. Wykorzystuje istniejące strony i kategorie, zachowuje niepuste treści i nie publikuje samodzielnie dokumentów prawnych. Nie tworzy kont ani przykładowych ogłoszeń. Puste strony informacyjne są przygotowywane po kliknięciu odpowiedniego przycisku.
+
+Galeria korzysta z natywnego bloku WordPressa. Nie ma zależności od page-buildera ani wymaganej wtyczki wydarzeń. Aktualności, książki i wydarzenia pozostają zwykłymi wpisami w bazie po zmianie motywu.
+
+## Pliki i dokumentacja
+
+- `wordpress/biblioteka-ranizow/` — źródła motywu.
+- `do-pobrania/biblioteka-ranizow-wordpress.zip` — paczka do instalacji przez panel.
+- `makieta/` i `do-pobrania/biblioteka-na-hosting.zip` — zachowana wcześniejsza makieta HTML.
+- [Podgląd działającego WordPressa](docs/wordpress-strona.png), [telefon](docs/wordpress-telefon.png), [strefa czytelnika](docs/wordpress-strefa.png).
+- [Panel pól wpisu](docs/wordpress-pola-wpisu.png).
+- [Testy i uruchomienie lokalne](docs/wordpress-testy.md).
 - [Dane biblioteki przekazane do projektu](docs/dane-biblioteki.md).
-- [WordPress: instalacja, artykuły i nowe książki](docs/wordpress-jak-zaczac.md).
-- [Wynik próby wyszukania dokumentów i sprawdzenia katalogów](docs/sprawdzenie-dokumentow.md).
+- [Prawo i dostępność — analiza robocza](docs/prawo-i-dostepnosc.md).
+- [Wynik prób odczytania dokumentów i katalogów](docs/sprawdzenie-dokumentow.md).
 
-## Uruchomienie
+## Weryfikacja
 
-Nie trzeba instalować zależności. Można otworzyć `makieta/index.html` bezpośrednio w przeglądarce albo uruchomić lokalny serwer z Pythonem 3:
+Motyw uruchomiono na WordPressie 7.1.3 z PHP 8.3.36 i MariaDB 11.4. Sprawdzono konfigurację, zachowanie treści, uprawnienia, formularz danych, natywny edytor, publikowanie książki i wydarzenia, daty i wygasanie ogłoszeń, galerię oraz responsywność dziewięciu typów stron z tekstem 100% i 200%. Końcowe uruchomienie zakończyło 47 sprawdzeń integracyjnych i 139 przeglądarkowych. WordPress rozpakował ZIP i rozpoznał poprawny motyw. Dokumentacja zawiera odtwarzalne polecenia.
 
-```sh
-cd /workspace/biblioteka
-python3 -m http.server 8080 --bind 127.0.0.1 --directory makieta
-```
+Paczka motywu jest przygotowana i sprawdzona lokalnie. Nie zainstalowano jej zdalnie na koncie hostingowym użytkownika. W WordPressie użytkownika potrzebne jest wgranie, aktywacja oraz uruchomienie konfiguracji.
 
-Przy samym oglądaniu statycznej makiety nie jest potrzebny PHP, MySQL ani WordPress. Rozbudowane menu, artykuły i ich filtry, A+ i kontrast działają bez bibliotek zewnętrznych. Żaden formularz nie zbiera danych; nie ma analityki, zewnętrznych fontów ani osadzonych map. Przycisk A+ nie zapisuje ustawienia w cookies ani localStorage.
+## Przed uruchomieniem publicznej strony instytucji
 
-## Co pozostaje do wykonania
+Dane kontaktowe pochodzą od użytkownika. Biblioteka musi potwierdzić ich aktualność, zatwierdzić dokumenty i prawa do treści oraz przeprowadzić ocenę dostępności. Motyw nie jest certyfikatem WCAG. Dokumenty prawne są początkowo szkicami; dopiero ich publikacja dodaje odnośniki w strefie dokumentów i stopce.
 
-Makieta zawiera rzeczywiste dane kontaktowe **przekazane przez użytkownika**, ale ich aktualność przed publikacją musi potwierdzić biblioteka. Treści artykułów, książek i wydarzeń są przykładami. Deklaracja i polityka prywatności są wyraźnie oznaczonymi szkicami.
-
-InfiniteFree jest wybrany do testów. Docelowy hosting i domena pozostają do wyboru, orientacyjny budżet około 300 zł rocznie. Nie skonfigurowano jeszcze hostingu, WordPressa, bazy ani panelu redakcyjnego.
-
-Po akceptacji układu: instalacja testowego WordPressa, wdrożenie motywu i redagowania treści, uzupełnienie dokumentów na podstawie faktycznego stanu, testy oraz publikacja. Zgodnie z briefem kolejne etapy zaczynają się po „dalej”, chyba że użytkownik wyraźnie zleci dany zakres wcześniej, jak analizę prawną w tej poprawce.
-
-## Weryfikacja i źródła
-
-Instrukcję uruchomienia i układ sprawdzamy w lokalnym Chromium, obejmując telefon, komputer, powiększenie tekstu, klawiaturę, przełączniki czytelności, menu, filtry i odnośniki. Nie jest to pełny audyt WCAG ani test przyszłego WordPressa.
-
-W tej sesji odczyt Dzikowca, BIP i gov.pl został zablokowany na połączeniu proxy. Inspiracja strukturą Dzikowca pochodzi z briefu użytkownika, a analiza prawna jest wstępna, ze źródłami do weryfikacji. Nie skopiowano tekstów, zdjęć, ikon ani deklaracji innej biblioteki. Sam zapis domen w projekcie ustawień nie zastosował dostępu do działającego środowiska.
-
-Sprawdzono dziewięć stron w Chromium na szerokościach 320, 375, 768, 1024 i 1440 px z tekstem 100% i 200%: brak przewijania poziomego. Wszystkie lokalne odnośniki i identyfikatory sprawdzono; każda strona odpowiada HTTP 200 i ma jeden H1. Działają menu klawiaturą, Escape, przejście do treści, fokus po przejściu do kontaktu, filtry kategorii i pełne artykuły. Bez błędów JavaScript, cookies, localStorage i żądań do zewnętrznych serwisów podczas sprawdzonego przeglądania. Menu i podmenu działają także bez JavaScriptu.
-
-## Aktualny układ
-
-Godziny, kontakt i adres pozostają pierwsze. Ważne ogłoszenia mają osobny szeroki blok, katalog książek jest wyróżniony w menu i kartach placówek. Usunięto Na skróty, historię i regionalia; strefa czytelnika ma nowy wygląd bez oferty usług i cennika. Nie znaleziono zatwierdzonych dokumentów w tej sesji z powodu blokady źródeł przez proxy; ich status jest jawnie opisany na stronie.
+Nie odczytano na żywo źródeł urzędowych i Dzikowca: proxy środowiska blokowało te połączenia. Nie skopiowano cudzych dokumentów, tekstów ani zdjęć. Podglądy lokalnego WordPressa zawierają jawnie nazwane dane testowe, których nie ma w paczce instalacyjnej.

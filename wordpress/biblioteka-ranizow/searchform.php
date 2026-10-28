@@ -1,0 +1,2 @@
+<?php if (!defined('ABSPATH')) { exit; } $search_id = wp_unique_id('br-search-'); ?>
+<form role="search" method="get" class="library-search" action="<?php echo esc_url(home_url('/')); ?>"><label for="<?php echo esc_attr($search_id); ?>">Szukaj na stronie biblioteki</label><div><input type="search" id="<?php echo esc_attr($search_id); ?>" name="s" value="<?php echo esc_attr(get_search_query()); ?>"><button type="submit" class="button">Szukaj</button></div></form>

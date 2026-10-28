@@ -1,0 +1,38 @@
+# Sprawdzenie wdrożenia WordPressa
+
+Motyw sprawdzono na lokalnej instalacji **WordPress 7.1.3, PHP 8.3.36 i MariaDB 11.4**, z oficjalnych obrazów przypiętych digestami w `dev/wordpress.py`. Nie logowano się do hostingu użytkownika i nie wykonywano instalacji na jego koncie.
+
+## Zakres
+
+- WordPress rozpoznaje i aktywuje motyw.
+- Konfiguracja używa istniejących stron i kategorii, zachowuje niepuste treści oraz dokumenty robocze. Powtórzenie nie dodaje duplikatów ani nie publikuje wycofanej strony.
+- Dokumenty prawne pozostają szkicami. Publiczna strona szkicu zwraca 404 dla odwiedzającego; po publikacji dokument jest dostępny w strefie i stopce.
+- Artykuły, książki, wydarzenia i ogłoszenia są zwykłymi wpisami. Szkice i zaplanowane wpisy nie trafiają do publicznych sekcji przed publikacją.
+- Daty wydarzeń respektują strefę WordPressa; terminy niepoprawne i zakończenie przed rozpoczęciem są odrzucane. Minione wydarzenia i wygasłe ogłoszenia znikają z aktywnych bloków.
+- Weryfikowane są uprawnienia, nonce i sanitacja wejścia w klasycznym zapisie, REST oraz ustawieniach biblioteki. Redaktor zapisuje kontakt, nie może uruchomić konfiguracji administratora; Subskrybent nie ma dostępu do formularza danych.
+- Zmiana telefonu przez prawdziwy formularz Redaktora jest widoczna równocześnie w kontakcie i stopce.
+- Książkę i wydarzenie utworzono w natywnym edytorze blokowym, zapisano przez mechanizm WordPressa i sprawdzono na publicznej stronie.
+- Galeria odczytuje zdjęcia z natywnego bloku, respektuje opisy alternatywne.
+- Sprawdzono dziewięć typów stron, szerokości 320, 375, 768, 1024 i 1440 px oraz tekst 100% i 200%, link do treści, klawiaturę, Escape, menu mobilne, wyszukiwanie i przełączniki czytelności.
+- Podczas sprawdzonego przeglądania niezalogowanej strony motyw nie wykonywał zewnętrznych żądań. Nie dodaje analityki, cookies ani zewnętrznych fontów.
+
+Końcowe uruchomienie zakończyło **47 sprawdzeń integracyjnych i 139 przeglądarkowych**. WordPress poprawnie rozpakował paczkę i rozpoznał instalacyjny motyw Biblioteka Raniżów 1.0.0. Test przeglądarkowy weryfikuje układ i rzeczywiste operacje przez panel. Aktualne wyniki są wypisywane przez polecenia poniżej. Nie są to certyfikat dostępności, audyt całej przyszłej treści ani gwarancja zgodności z każdym hostingiem i zestawem wtyczek.
+
+## Powtórzenie w środowisku projektu
+
+```sh
+cd /workspace/biblioteka
+python3 dev/wordpress.py start
+python3 dev/wordpress.py lint
+python3 dev/wordpress.py test
+node tests/wordpress/browser.mjs
+python3 tools/package_wordpress.py
+```
+
+Wymagane są działający lokalny Docker oraz Python 3; test przeglądarkowy używa dostępnego w tym środowisku Playwrighta i Chromium. Dla innego miejsca instalacji Playwrighta ustaw `PLAYWRIGHT_MODULE`. Projekt korzysta z istniejącego checkoutu, bez tworzenia Git worktree.
+
+Lokalne dane i losowe hasła testowe znajdują się **poza repozytorium**, w `/workspace/.biblioteka-runtime/`, a WordPress i baza w osobnych kontenerach i wolumenach. Przeglądarka testowa nie wypisuje haseł. Testy zarządzają tylko własnymi oznaczonymi rekordami w izolowanej bazie testowej; nie należy kierować ich do witryny produkcyjnej.
+
+Serwer testowy słucha na porcie 8081 tylko na adresie loopback. Jego proces nie jest częścią paczki motywu. Polecenie `python3 dev/wordpress.py stop` zatrzymuje wyłącznie kontenery tego projektu, zachowując dane. `recreate` odtwarza własny kontener aplikacji z zachowaniem wolumenów, np. po zmianie lokalnej konfiguracji środowiska. Nie wyłączano weryfikacji TLS, podpisów ani sum obrazów.
+
+Pierwsze uruchomienia wykryły kolizję nazwy zmiennej testowej z globalną zmienną WordPressa oraz niedostępny zasób edytora w lokalnym bind mount. Poprawiono runner i uprawnienia zasobów. Nowszy edytor ukrywał też klasyczne pola; docelowy panel jest natywnym panelem „Treść biblioteki”, z klasycznym formularzem jako obsługą starszego edytora.
